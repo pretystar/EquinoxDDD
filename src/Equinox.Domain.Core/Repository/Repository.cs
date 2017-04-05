@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Equinox.Domain.Interfaces;
-using Equinox.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace Equinox.Infra.Data.Repository
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected EquinoxContext Db;
+        protected DbContext Db;
         protected DbSet<TEntity> DbSet;
 
-        public Repository(EquinoxContext context)
+        public Repository(DbContext context)
         {
             Db = context;
             DbSet = Db.Set<TEntity>();

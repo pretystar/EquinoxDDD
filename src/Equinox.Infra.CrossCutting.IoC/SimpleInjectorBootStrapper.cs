@@ -52,7 +52,7 @@ namespace Equinox.Infra.CrossCutting.IoC
 
             // Infra - Data
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, EquinoxUnitOfWork>();
             services.AddScoped<EquinoxContext>();
 
             // Infra - Data EventSourcing

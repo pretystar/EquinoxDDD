@@ -1,14 +1,14 @@
 ﻿using Equinox.Domain.Core.Commands;
 using Equinox.Domain.Interfaces;
-using Equinox.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Equinox.Infra.Data.UoW
 {
-    public class EquinoxUnitOfWork : UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        private readonly EquinoxContext _context;
+        private readonly DbContext _context;
 
-        public EquinoxUnitOfWork(EquinoxContext context):base(context)
+        public UnitOfWork(DbContext context)
         {
             _context = context;
         }
